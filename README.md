@@ -42,7 +42,7 @@ To set up this project, follow these steps:
 
 4. **Run the Streamlit app:**
     ```bash
-    streamlit run app.py
+    streamlit run GRASP.py
     ```
 
 ## Usage
@@ -94,9 +94,6 @@ This page allows you to specify an API endpoint and ask questions about its resp
 
 ## Feedback
 We value your feedback! Please provide your feedback using the text area in the sidebar and click 'Submit Feedback'.
-
-## Contributing
-We welcome contributions! If you'd like to contribute, please fork the repository and submit a pull request.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
