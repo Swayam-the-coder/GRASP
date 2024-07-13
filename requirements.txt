@@ -1,0 +1,14 @@
+streamlit
+streamlit-option-menu
+langchain-community
+langchain-openai
+langchain-chroma
+langchain-text-splitters
+langchain-core
+openai
+python-dotenv
+beautifulsoup4
+SpeechRecognition
+SQLAlchemy
+pandas
+requests
