@@ -1,6 +1,6 @@
 # 🤖 GRASP: Generative Retrieval Augmented Search Platform
 
-![GRASP Screenshot](screenshot.png)
+![Screenshot (166)](https://github.com/user-attachments/assets/b1e15e48-97b7-4859-8434-5ebc72af45ca)
 
 Welcome to GRASP! This platform allows you to explore various Retrieval-Augmented Generation (RAG) methods using different types of data sources, such as PDFs, web pages, text documents, audio files, databases, and APIs. Below you'll find a detailed guide on how to set up, use, and understand this project.
 
