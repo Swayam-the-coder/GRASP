@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from langchain_community.document_loaders import PyPDFLoader, WebBaseLoader
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_chroma import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -85,7 +85,7 @@ def pdf_rag_page():
         docs = loader.load()
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         splits = text_splitter.split_documents(docs)
-        vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings())
+        vectorstore = FAISS.from_documents(documents=splits, embedding=OpenAIEmbeddings())
         retriever = vectorstore.as_retriever()
         system_prompt = (
             "You are an assistant for question-answering tasks. "
@@ -139,7 +139,7 @@ def web_rag_page():
         documents = loader.load()
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200, add_start_index=True)
         all_splits = text_splitter.split_documents(documents)
-        vectorstore = Chroma.from_documents(documents=all_splits, embedding=OpenAIEmbeddings())
+        vectorstore = FAISS.from_documents(documents=all_splits, embedding=OpenAIEmbeddings())
         retriever = vectorstore.as_retriever()
         system_prompt = (
             "You are an assistant for question-answering tasks. "
@@ -192,7 +192,7 @@ def text_document_rag_page():
         content = file.read().decode('utf-8')
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         splits = text_splitter.split_text(content)
-        vectorstore = Chroma.from_texts(texts=splits, embedding=OpenAIEmbeddings())
+        vectorstore = FAISS.from_texts(texts=splits, embedding=OpenAIEmbeddings())
         retriever = vectorstore.as_retriever()
         system_prompt = (
             "You are an assistant for question-answering tasks. "
@@ -254,7 +254,7 @@ def audio_rag_page():
         text = recognizer.recognize_google(audio)
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         splits = text_splitter.split_text(text)
-        vectorstore = Chroma.from_texts(texts=splits, embedding=OpenAIEmbeddings())
+        vectorstore = FAISS.from_texts(texts=splits, embedding=OpenAIEmbeddings())
         retriever = vectorstore.as_retriever()
         system_prompt = (
             "You are an assistant for question-answering tasks. "
@@ -309,7 +309,7 @@ def database_rag_page():
         df = pd.read_sql_table(table_name, engine)
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         splits = text_splitter.split_text(df.to_string())
-        vectorstore = Chroma.from_texts(texts=splits, embedding=OpenAIEmbeddings())
+        vectorstore = FAISS.from_texts(texts=splits, embedding=OpenAIEmbeddings())
         retriever = vectorstore.as_retriever()
         system_prompt = (
             "You are an assistant for question-answering tasks. "
@@ -363,7 +363,7 @@ def api_rag_page():
         data = response.json()
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         splits = text_splitter.split_text(str(data))
-        vectorstore = Chroma.from_texts(texts=splits, embedding=OpenAIEmbeddings())
+        vectorstore = FAISS.from_texts(texts=splits, embedding=OpenAIEmbeddings())
         retriever = vectorstore.as_retriever()
         system_prompt = (
             "You are an assistant for question-answering tasks. "
