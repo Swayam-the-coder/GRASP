@@ -2,7 +2,7 @@ streamlit
 streamlit-option-menu
 langchain-community
 langchain-openai
-langchain-chroma
+langchain-faiss
 langchain-text-splitters
 langchain-core
 openai
