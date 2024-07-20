@@ -12,3 +12,4 @@ SpeechRecognition
 SQLAlchemy
 pandas
 requests
+pypdf
