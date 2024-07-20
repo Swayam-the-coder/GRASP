@@ -13,3 +13,4 @@ SQLAlchemy
 pandas
 requests
 pypdf
+cryptography>=3.1
