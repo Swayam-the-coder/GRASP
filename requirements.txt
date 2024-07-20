@@ -2,7 +2,7 @@ streamlit
 streamlit-option-menu
 langchain-community
 langchain-openai
-langchain-chroma
+faiss-cpu
 langchain-text-splitters
 langchain-core
 openai
@@ -12,3 +12,5 @@ SpeechRecognition
 SQLAlchemy
 pandas
 requests
+pypdf
+cryptography>=3.1
